@@ -9,7 +9,7 @@ import paramiko
 device = torch.device('cpu')
 
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', device=device)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='model/best.pt', device=device)
 model.conf = 0.80 #confidential probability
 model.iou = 0.45   
 
