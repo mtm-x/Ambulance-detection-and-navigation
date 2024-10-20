@@ -105,27 +105,31 @@ void loop() {
     return;
   }
 
-  // HTML content with gradient background, modern fonts, button styling, and the "About Us" section
+  // HTML content with blue theme and equal-sized buttons
   String s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n";
   s += "<!DOCTYPE html> <html> <head> <title>Ambulance Navigation</title>";
   s += "<style>";
-  s += "@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');";  // Importing Google Font
-  s += "body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(135deg, #74ebd5, #ACB6E5); color: #fff; }";
+  s += "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');";  // Importing Poppins Font
+  s += "body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(135deg, #5b86e5, #36d1dc); color: #fff; }";  // Updated blue gradient background
   
-  // Adding the "Techy Freakz" title
-  s += "h1.title { font-size: 48px; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; font-family: 'Roboto', sans-serif; color: #333; background: rgba(255,255,255,0.9); padding: 10px 20px; border-radius: 5px; }";
+  // Title with blue text
+  s += "h1.title { font-size: 48px; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px; font-family: 'Poppins', sans-serif; color: #fff; background: rgba(0,123,255,0.9); padding: 10px 20px; border-radius: 5px; }";
   
-  s += "h2 { font-size: 36px; margin-bottom: 20px; font-weight: 700; }";
+  s += "h2 { font-size: 36px; margin-bottom: 20px; font-weight: 700; color: #fff; }";
+  
+  // Table styling with blue accents
   s += "table { border-collapse: collapse; width: 60%; background: rgba(255, 255, 255, 0.9); border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); margin-bottom: 20px; }";
   s += "th, td { padding: 20px; text-align: center; border: 1px solid #ddd; font-size: 18px; color: #333; }";
   s += "th { background-color: #007BFF; color: white; font-size: 20px; font-weight: 500; }";
   s += "td { background-color: #f8f9fa; }";
+  
+  // Buttons equal size and blue styling
   s += ".button-container { display: flex; flex-direction: column; align-items: center; }";
-  s += "a { display: inline-block; background-color: #28a745; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin-top: 10px; transition: background-color 0.3s, transform 0.3s; font-size: 18px; font-weight: 500; }";
-  s += "a:hover { background-color: #218838; transform: scale(1.05); }";  // Button hover effect
-
-  // Style for About Us modal or section
-  s += ".about-us { margin-top: 30px; padding: 20px; background-color: rgba(255,255,255,0.9); border-radius: 10px; text-align: center; font-size: 18px; color: #333; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }";
+  s += "a { display: inline-block; width: 250px; text-align: center; background-color: #007BFF; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin-top: 10px; transition: background-color 0.3s, transform 0.3s; font-size: 18px; font-weight: 500; }";
+  s += "a:hover { background-color: #0056b3; transform: scale(1.05); }";  // Hover effect
+  
+  // Style for About Us section with blue accents
+  s += ".about-us { margin-top: 30px; padding: 20px; background-color: rgba(0,123,255,0.9); border-radius: 10px; text-align: center; font-size: 18px; color: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }";
   s += "</style> </head> <body>";
 
   // Adding the "Techy Freakz" title above the Ambulance Location Tracker
@@ -147,14 +151,14 @@ void loop() {
   s += "<a href=\"http://maps.google.com/maps?&z=15&mrt=yp&t=k&q=" + lat_str + "+" + lng_str + "\" target=\"_top\">Check Location in Google Maps</a>";
   
   // Fixing the nearby hospitals search link to use live GPS coordinates with a specific search for hospitals
-  s += "<a href=\"https://www.google.com/maps/search/hospital/@"+ lat_str +","+ lng_str +",14z/\" target=\"_blank\">Find Nearest Hospital</a>";
+  s += "<a href=\"https://www.google.com/maps/search/ nearest hospital/@"+ lat_str +","+ lng_str +",14z/\" target=\"_blank\">Find Nearest Hospital</a>";
   
-  s += "<a href=\"/\" style=\"background-color: #007BFF;\">Refresh Location</a>";  // Refresh button
+  s += "<a href=\"/\" style=\"background-color: #0056b3;\">Refresh Location</a>";  // Refresh button
   
-  // "About Us" button and section
+  // "About Us" section with blue background
   s += "<div class=\"about-us\">";
   s += "<h3>BUILD BY</h3>";
-  s += "<p>Jayapranav.R, Balaji.R.G, Thamaraimanalan.M, Mohammed Yassir.I</p>";
+  s += "<p>Jayapranav.R, Balaji.R.G, Thamaraimanalan.M, Mohammed Yassir.I, U.Yeshwanth</p>";
   s += "</div>";
   
   s += "</div>";
@@ -164,4 +168,3 @@ void loop() {
   client.print(s);
   delay(100);
 }
-
